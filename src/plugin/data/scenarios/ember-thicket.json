@@ -1,0 +1,145 @@
+{
+  "id": "ember-thicket",
+  "category": "easy",
+  "overlays": [],
+  "twin_of": "",
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "Denver to Seattle on January 26th for the western extension directors' meeting the next day, please. The cheapest seat that works.",
+  "trip": {
+    "traveller_name": "Tomas Avila",
+    "traveller_title": "Associate Director, West Central Research, Extension and Education Center",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "campus": "UNL West Central Research, Extension and Education Center, North Platte (drives to Denver to fly)",
+    "origin": "DEN",
+    "destination": "SEA",
+    "destination_needs_passport": false,
+    "travel_date": "2027-01-26",
+    "return_date": "",
+    "booking_date": "2026-12-08",
+    "purpose": "Western region extension directors' meeting in Seattle",
+    "purpose_kind": "MEETING",
+    "must_arrive_by": "",
+    "requested_cabin": "ECONOMY",
+    "traveller_pays_upgrade": false,
+    "requested_mode": "AIRLINE",
+    "wants_to_book_outside": false,
+    "outside_fares": [],
+    "trip_request": {
+      "kind": "SINGLE_TRIP",
+      "submitted_on": "2026-11-30",
+      "covers": "Regional meeting in Seattle, January 26-28"
+    },
+    "sign_offs": [
+      {
+        "role": "SUPERVISOR_APPROVER",
+        "name": "Beth Sorensen",
+        "subject": "TRIP_REQUEST",
+        "covers": "The trip request, approved",
+        "given_on": "2026-12-02"
+      },
+      {
+        "role": "FINANCIAL_APPROVER",
+        "name": "Gary Imhoff",
+        "subject": "TRIP_REQUEST",
+        "covers": "The trip request, approved; the funding is budgeted",
+        "given_on": "2026-12-02"
+      }
+    ]
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "main",
+        "origin": "DEN",
+        "destination": "SEA",
+        "date": "2027-01-26",
+        "return_date": "",
+        "background": 2,
+        "flights": {
+          "alaska": {
+            "carrier": "AS",
+            "depart": "07:00"
+          },
+          "united": {
+            "carrier": "UA",
+            "depart": "09:20"
+          },
+          "delta": {
+            "carrier": "DL",
+            "depart": "13:05"
+          }
+        },
+        "offers": [
+          {
+            "slot": "alaska-economy",
+            "flight": "alaska",
+            "cabin": "ECONOMY",
+            "fare_cents": 16800,
+            "seats": false
+          },
+          {
+            "slot": "united-economy",
+            "flight": "united",
+            "cabin": "ECONOMY",
+            "fare_cents": 18400
+          },
+          {
+            "slot": "delta-economy",
+            "flight": "delta",
+            "cabin": "ECONOMY",
+            "fare_cents": 19900
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "united-economy"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "LOWEST_FARE"
+    ],
+    "approvers": [
+      "FINANCIAL_APPROVER",
+      "NONE",
+      "SUPERVISOR_APPROVER"
+    ],
+    "clauses": [
+      "AIR_BOOKING",
+      "COMMERCIAL_AIR",
+      "MOST_ECONOMICAL_RATES",
+      "PRE_TRIP_APPROVAL"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        143,
+        145
+      ],
+      "sha256": "657a427cbe68f93f6f44a150dec0a1076c40578aa7ca5becb98573503a804a3b",
+      "quote": "All Pre-Trip Requests will require approval by the Traveler's Supervisor Approver and Financial Approver for all funding sources. Pre-Trip Requests are required prior to any bookings",
+      "why": "the request, approved by the supervisor and financial approvers, comes before any booking"
+    },
+    {
+      "lines": [
+        237,
+        239
+      ],
+      "sha256": "b1b543ff10f56fd1b3a61b70aaee70ac1dd3178771b0f20f6fdfb704b39985c9",
+      "quote": "The Traveler should book a ticket not to exceed the price of the coach or main cabin rate at the time of purchase. If the Traveler purchases a ticket that is not the lowest listed price, a brief explanation for this choice must be provided.",
+      "why": "a ticket not above the coach or main cabin price; a brief explanation for a ticket that is not the lowest listed price"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "The Alaska fare is sold out, so the lowest listed coach fare that can be bought is United at $184 (lines 237-239). The request is approved (lines 143-145)."
+}

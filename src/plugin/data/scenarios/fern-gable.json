@@ -1,0 +1,161 @@
+{
+  "id": "fern-gable",
+  "category": "easy",
+  "overlays": [
+    "multi_leg"
+  ],
+  "twin_of": "",
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "Book me Denver to Atlanta on February 2nd; the conference starts the morning of the 3rd. I don't mind a connection if it's the cheapest.",
+  "trip": {
+    "traveller_name": "Owen Fairbanks",
+    "traveller_title": "Research Technologist, Agronomy",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "campus": "UNL Panhandle Research, Extension and Education Center, Scottsbluff (drives to Denver to fly)",
+    "origin": "DEN",
+    "destination": "ATL",
+    "destination_needs_passport": false,
+    "travel_date": "2027-02-02",
+    "return_date": "",
+    "booking_date": "2026-12-04",
+    "purpose": "Southern weed science conference in Atlanta",
+    "purpose_kind": "CONFERENCE",
+    "must_arrive_by": "",
+    "requested_cabin": "ECONOMY",
+    "traveller_pays_upgrade": false,
+    "requested_mode": "AIRLINE",
+    "wants_to_book_outside": false,
+    "outside_fares": [],
+    "trip_request": {
+      "kind": "SINGLE_TRIP",
+      "submitted_on": "2026-11-23",
+      "covers": "Conference in Atlanta, February 2-5"
+    },
+    "sign_offs": [
+      {
+        "role": "SUPERVISOR_APPROVER",
+        "name": "Craig Whitmore",
+        "subject": "TRIP_REQUEST",
+        "covers": "The trip request, approved",
+        "given_on": "2026-11-25"
+      },
+      {
+        "role": "FINANCIAL_APPROVER",
+        "name": "Lori Baca",
+        "subject": "TRIP_REQUEST",
+        "covers": "The trip request, approved; the funding is budgeted",
+        "given_on": "2026-11-25"
+      }
+    ]
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "main",
+        "origin": "DEN",
+        "destination": "ATL",
+        "date": "2027-02-02",
+        "return_date": "",
+        "background": 2,
+        "flights": {
+          "chicago": {
+            "carrier": "UA",
+            "via": [
+              "ORD"
+            ],
+            "depart": "07:30",
+            "layovers": [
+              75
+            ]
+          },
+          "delta": {
+            "carrier": "DL",
+            "depart": "08:00"
+          },
+          "southwest": {
+            "carrier": "WN",
+            "depart": "11:00"
+          }
+        },
+        "offers": [
+          {
+            "slot": "chicago-economy",
+            "flight": "chicago",
+            "cabin": "ECONOMY",
+            "fare_cents": 21900
+          },
+          {
+            "slot": "delta-economy",
+            "flight": "delta",
+            "cabin": "ECONOMY",
+            "fare_cents": 27600
+          },
+          {
+            "slot": "southwest-economy",
+            "flight": "southwest",
+            "cabin": "ECONOMY",
+            "fare_cents": 24800
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "chicago-economy"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "LOWEST_FARE"
+    ],
+    "approvers": [
+      "FINANCIAL_APPROVER",
+      "NONE",
+      "SUPERVISOR_APPROVER"
+    ],
+    "clauses": [
+      "AIR_BOOKING",
+      "COMMERCIAL_AIR",
+      "MOST_ECONOMICAL_RATES",
+      "PRE_TRIP_APPROVAL"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        143,
+        145
+      ],
+      "sha256": "657a427cbe68f93f6f44a150dec0a1076c40578aa7ca5becb98573503a804a3b",
+      "quote": "All Pre-Trip Requests will require approval by the Traveler's Supervisor Approver and Financial Approver for all funding sources. Pre-Trip Requests are required prior to any bookings",
+      "why": "the request, approved by the supervisor and financial approvers, comes before any booking"
+    },
+    {
+      "lines": [
+        237,
+        239
+      ],
+      "sha256": "b1b543ff10f56fd1b3a61b70aaee70ac1dd3178771b0f20f6fdfb704b39985c9",
+      "quote": "The Traveler should book a ticket not to exceed the price of the coach or main cabin rate at the time of purchase. If the Traveler purchases a ticket that is not the lowest listed price, a brief explanation for this choice must be provided.",
+      "why": "a ticket not above the coach or main cabin price; a brief explanation for a ticket that is not the lowest listed price"
+    },
+    {
+      "lines": [
+        160,
+        162
+      ],
+      "sha256": "efad5c95effe270b60f8f54b4ea6a1308ad9edd10bb443956009839c20d017d2",
+      "quote": "All Travelers should use their best efforts to choose the most economical means of travel that meet the approved goals of the trip within the parameters of this Travel Policy. The Traveler's business purpose, potential time in transit, special needs, cost efficiency and other business-related circumstances contribute to determining the most economic options.",
+      "why": "the most economical means of travel that meet the approved goals of the trip"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "The lowest listed coach fare is United via Chicago at $219 (lines 237-239); the traveller welcomes a connection and the conference starts the next morning, so it meets the trip's goals (lines 160-162)."
+}

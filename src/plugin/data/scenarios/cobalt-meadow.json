@@ -1,0 +1,154 @@
+{
+  "id": "cobalt-meadow",
+  "category": "easy",
+  "overlays": [],
+  "twin_of": "",
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "Denver to New York JFK on January 12th, please, for the grant review panel the next morning. Business class if the university allows it; if not, economy is fine. I have to be at the panel.",
+  "trip": {
+    "traveller_name": "Marcus Lindqvist",
+    "traveller_title": "Professor of Economics, UNK",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "campus": "University of Nebraska at Kearney (drives to Denver to fly)",
+    "origin": "DEN",
+    "destination": "JFK",
+    "destination_needs_passport": false,
+    "travel_date": "2027-01-12",
+    "return_date": "",
+    "booking_date": "2026-12-03",
+    "purpose": "Federal grant review panel in New York",
+    "purpose_kind": "MEETING",
+    "must_arrive_by": "",
+    "requested_cabin": "BUSINESS",
+    "traveller_pays_upgrade": false,
+    "requested_mode": "AIRLINE",
+    "wants_to_book_outside": false,
+    "outside_fares": [],
+    "trip_request": {
+      "kind": "SINGLE_TRIP",
+      "submitted_on": "2026-11-18",
+      "covers": "Grant review panel in New York, January 12-14"
+    },
+    "sign_offs": [
+      {
+        "role": "SUPERVISOR_APPROVER",
+        "name": "Renee Dubois",
+        "subject": "TRIP_REQUEST",
+        "covers": "The trip request, approved",
+        "given_on": "2026-11-20"
+      },
+      {
+        "role": "FINANCIAL_APPROVER",
+        "name": "Arthur Coyle",
+        "subject": "TRIP_REQUEST",
+        "covers": "The trip request, approved; the funding is budgeted",
+        "given_on": "2026-11-20"
+      }
+    ]
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "main",
+        "origin": "DEN",
+        "destination": "JFK",
+        "date": "2027-01-12",
+        "return_date": "",
+        "background": 2,
+        "flights": {
+          "jetblue": {
+            "carrier": "B6",
+            "depart": "07:00"
+          },
+          "delta": {
+            "carrier": "DL",
+            "depart": "08:15"
+          },
+          "american": {
+            "carrier": "AA",
+            "depart": "10:30"
+          }
+        },
+        "offers": [
+          {
+            "slot": "jetblue-economy",
+            "flight": "jetblue",
+            "cabin": "ECONOMY",
+            "fare_cents": 28900
+          },
+          {
+            "slot": "delta-economy",
+            "flight": "delta",
+            "cabin": "ECONOMY",
+            "fare_cents": 31200
+          },
+          {
+            "slot": "delta-business",
+            "flight": "delta",
+            "cabin": "BUSINESS",
+            "fare_cents": 114000
+          },
+          {
+            "slot": "american-economy",
+            "flight": "american",
+            "cabin": "ECONOMY",
+            "fare_cents": 29800
+          },
+          {
+            "slot": "american-business",
+            "flight": "american",
+            "cabin": "BUSINESS",
+            "fare_cents": 109000
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "jetblue-economy"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "UPGRADE_NOT_ELIGIBLE"
+    ],
+    "approvers": [
+      "FINANCIAL_APPROVER",
+      "NONE",
+      "SUPERVISOR_APPROVER"
+    ],
+    "clauses": [
+      "AIR_BOOKING",
+      "UPGRADES"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        237,
+        239
+      ],
+      "sha256": "b1b543ff10f56fd1b3a61b70aaee70ac1dd3178771b0f20f6fdfb704b39985c9",
+      "quote": "The Traveler should book a ticket not to exceed the price of the coach or main cabin rate at the time of purchase. If the Traveler purchases a ticket that is not the lowest listed price, a brief explanation for this choice must be provided.",
+      "why": "a ticket not above the coach or main cabin price; a brief explanation for a ticket that is not the lowest listed price"
+    },
+    {
+      "lines": [
+        143,
+        145
+      ],
+      "sha256": "657a427cbe68f93f6f44a150dec0a1076c40578aa7ca5becb98573503a804a3b",
+      "quote": "All Pre-Trip Requests will require approval by the Traveler's Supervisor Approver and Financial Approver for all funding sources. Pre-Trip Requests are required prior to any bookings",
+      "why": "the request, approved by the supervisor and financial approvers, comes before any booking"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "Lines 237-238: the ticket may not exceed the coach or main cabin price at purchase. Business fares ($1,090 and up) exceed every coach fare, so the traveller's fallback applies: the lowest coach fare, JetBlue at $289. The reason says why business is declined (UPGRADE_NOT_ELIGIBLE), not LOWEST_FARE."
+}

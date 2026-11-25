@@ -1,0 +1,161 @@
+{
+  "id": "zinnia-marsh",
+  "category": "flag",
+  "overlays": [
+    "unclear_phrase"
+  ],
+  "twin_of": "",
+  "twin_fact": "",
+  "flag_twins": [
+    "birch-lantern",
+    "dune-sparrow"
+  ],
+  "ambiguity_note": {
+    "phrase": "may require additional approval based on campus-specific procedures",
+    "readings": [
+      "no further approval applies: the request approved by the supervisor and financial approvers is complete, so book the lowest coach fare",
+      "a campus-specific approval may still be needed for travel outside the continental United States, so hold the fare until it is confirmed"
+    ]
+  },
+  "request": "Denver to Honolulu on February 22nd for the tropical plant disease symposium, which opens the next morning. My supervisor and financial approver approved the pre-trip request. Please book it.",
+  "trip": {
+    "traveller_name": "Iris Kahananui",
+    "traveller_title": "Research Assistant Professor, Plant Pathology",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "campus": "UNL Panhandle Research, Extension and Education Center, Scottsbluff (drives to Denver to fly)",
+    "origin": "DEN",
+    "destination": "HNL",
+    "destination_needs_passport": false,
+    "travel_date": "2027-02-22",
+    "return_date": "",
+    "booking_date": "2026-12-04",
+    "purpose": "Tropical plant disease symposium in Honolulu",
+    "purpose_kind": "CONFERENCE",
+    "must_arrive_by": "",
+    "requested_cabin": "ECONOMY",
+    "traveller_pays_upgrade": false,
+    "requested_mode": "AIRLINE",
+    "wants_to_book_outside": false,
+    "outside_fares": [],
+    "trip_request": {
+      "kind": "SINGLE_TRIP",
+      "submitted_on": "2026-11-02",
+      "covers": "Symposium in Honolulu, Hawaii, February 22-26"
+    },
+    "sign_offs": [
+      {
+        "role": "SUPERVISOR_APPROVER",
+        "name": "Craig Whitmore",
+        "subject": "TRIP_REQUEST",
+        "covers": "The trip request, approved",
+        "given_on": "2026-11-05"
+      },
+      {
+        "role": "FINANCIAL_APPROVER",
+        "name": "Lori Baca",
+        "subject": "TRIP_REQUEST",
+        "covers": "The trip request, approved; the funding is budgeted",
+        "given_on": "2026-11-05"
+      }
+    ]
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "main",
+        "origin": "DEN",
+        "destination": "HNL",
+        "date": "2027-02-22",
+        "return_date": "",
+        "background": 0,
+        "flights": {
+          "united": {
+            "carrier": "UA",
+            "depart": "09:15"
+          },
+          "alaska": {
+            "carrier": "AS",
+            "depart": "11:40"
+          }
+        },
+        "offers": [
+          {
+            "slot": "united-economy",
+            "flight": "united",
+            "cabin": "ECONOMY",
+            "fare_cents": 41800
+          },
+          {
+            "slot": "alaska-economy",
+            "flight": "alaska",
+            "cabin": "ECONOMY",
+            "fare_cents": 39600
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "FLAG_FOR_APPROVAL",
+    "offer_slots": [
+      "alaska-economy"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "APPROVAL_REQUIRED",
+      "UNCLEAR_POLICY_TEXT"
+    ],
+    "approvers": [
+      "NOT_NAMED",
+      "UNIVERSITY_TRAVEL_OFFICE",
+      "VICE_CHANCELLOR_BUSINESS_FINANCE"
+    ],
+    "clauses": [
+      "PRE_TRIP_APPROVAL"
+    ],
+    "unclear_phrase": "may require additional approval based on campus-specific procedures"
+  },
+  "must_keep": [
+    {
+      "lines": [
+        153,
+        154
+      ],
+      "sha256": "39079f7376b8b76ff9eb4846ddd3c93a094f425641722308290de63e82478a58",
+      "quote": "Non-continental United States travel may require additional approval based on campus-specific procedures.",
+      "why": "non-continental US travel: an approval the handbook leaves to campus procedures"
+    },
+    {
+      "lines": [
+        143,
+        145
+      ],
+      "sha256": "657a427cbe68f93f6f44a150dec0a1076c40578aa7ca5becb98573503a804a3b",
+      "quote": "All Pre-Trip Requests will require approval by the Traveler's Supervisor Approver and Financial Approver for all funding sources. Pre-Trip Requests are required prior to any bookings",
+      "why": "the request, approved by the supervisor and financial approvers, comes before any booking"
+    },
+    {
+      "lines": [
+        53,
+        55
+      ],
+      "sha256": "09921e63c449b125b479dcaa68e27f427108c8f344700c87e1dc235735115f4a",
+      "quote": "International Travel - travel outside of the United States and its territories or travel to any destination that requires a passport, unless otherwise stated within this Travel Policy or by outside vendors/suppliers",
+      "why": "International Travel: outside the US and its territories, or a destination that needs a passport"
+    }
+  ],
+  "distractors": [
+    {
+      "lines": [
+        148,
+        151
+      ],
+      "quote": "Travelers are well-advised to submit Pre-Trip Requests for International and non-continental United States travel no less than thirty (30) days in advance of travel.",
+      "why": "advice on when to file the request; the approvals are already on file"
+    }
+  ],
+  "design_notes": "Hawaii is in the United States and needs no passport, so it is not International Travel (lines 53-55) and needs no Vice Chancellor approval. But lines 153-154: 'Non-continental United States travel may require additional approval based on campus-specific procedures.' The handbook gives no such procedure and names no approver, and the record holds only the supervisor's and financial approver's sign-offs. Whether the request is complete is open: hold the lowest coach fare, Alaska at $396."
+}

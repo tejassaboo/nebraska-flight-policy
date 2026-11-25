@@ -1,0 +1,144 @@
+{
+  "id": "vetch-hollow",
+  "category": "refusal",
+  "overlays": [
+    "personal_travel",
+    "outside_air_section"
+  ],
+  "twin_of": "",
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "I'm in Chicago for the two-week program at the agricultural research center. On the free weekend I want to fly to Seattle on Saturday, February 13th, to see my sister, and come back Sunday. Could you book Chicago to Seattle for Saturday?",
+  "trip": {
+    "traveller_name": "Caleb Norquist",
+    "traveller_title": "Research Technician, Plant Breeding",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "campus": "UNL Panhandle Research, Extension and Education Center, Scottsbluff (drives to Denver to fly)",
+    "origin": "ORD",
+    "destination": "SEA",
+    "destination_needs_passport": false,
+    "travel_date": "2027-02-13",
+    "return_date": "",
+    "booking_date": "2026-12-09",
+    "purpose": "Visiting his sister in Seattle over the free weekend of a two-week program in Chicago",
+    "purpose_kind": "PERSONAL",
+    "must_arrive_by": "",
+    "requested_cabin": "ECONOMY",
+    "traveller_pays_upgrade": false,
+    "requested_mode": "AIRLINE",
+    "wants_to_book_outside": false,
+    "outside_fares": [],
+    "trip_request": {
+      "kind": "SINGLE_TRIP",
+      "submitted_on": "2026-11-30",
+      "covers": "Two-week training program in Chicago, February 8-19; a personal weekend trip is disclosed and its costs left out"
+    },
+    "sign_offs": [
+      {
+        "role": "SUPERVISOR_APPROVER",
+        "name": "Craig Whitmore",
+        "subject": "TRIP_REQUEST",
+        "covers": "The trip request, approved",
+        "given_on": "2026-12-02"
+      },
+      {
+        "role": "FINANCIAL_APPROVER",
+        "name": "Lori Baca",
+        "subject": "TRIP_REQUEST",
+        "covers": "The trip request, approved; the funding is budgeted",
+        "given_on": "2026-12-02"
+      }
+    ]
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "main",
+        "origin": "ORD",
+        "destination": "SEA",
+        "date": "2027-02-13",
+        "return_date": "",
+        "background": 2,
+        "flights": {
+          "united": {
+            "carrier": "UA",
+            "depart": "08:00"
+          },
+          "alaska": {
+            "carrier": "AS",
+            "depart": "10:35"
+          }
+        },
+        "offers": [
+          {
+            "slot": "united-economy",
+            "flight": "united",
+            "cabin": "ECONOMY",
+            "fare_cents": 21300
+          },
+          {
+            "slot": "alaska-economy",
+            "flight": "alaska",
+            "cabin": "ECONOMY",
+            "fare_cents": 19600
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "REFUSE",
+    "offer_slots": [],
+    "cabins": [
+      "NONE"
+    ],
+    "reason_codes": [
+      "OUTSIDE_POLICY_SCOPE",
+      "PERSONAL_TRAVEL_NOT_COVERED"
+    ],
+    "approvers": [
+      "FINANCIAL_APPROVER",
+      "NONE",
+      "SUPERVISOR_APPROVER"
+    ],
+    "clauses": [
+      "PERSONAL_TRAVEL",
+      "POLICY_STATEMENT",
+      "SCOPE"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        164,
+        170
+      ],
+      "sha256": "1d22b93d22dc62cf390174c14f2b0d695137420d0294e5fb810b9979ec550da0",
+      "quote": "Travelers who engage in personal travel, while in Travel Status, should acknowledge and include information concerning personal travel in the Pre-Trip Request to the extent reasonably necessary to facilitate and comply with this Travel Policy. However, only University business-related travel expenses should be included in the Pre-Trip Request and expense reports. Following the trip, the University will pay for or reimburse the Traveler for the portion of the expenses that relate to the University-related business purpose of the trip. All personal expenses and related taxes, tips and fees should be deducted by the Traveler from the submitted, detailed receipts.",
+      "why": "personal travel in Travel Status: only the business portion is paid"
+    },
+    {
+      "lines": [
+        26,
+        28
+      ],
+      "sha256": "bfad76dd6252a2035a9edefc4cc3135bf39ff50cfce1b5a6dd0c69734502af1c",
+      "quote": "The University will pay for and reimburse reasonable, necessary and approved travel and expenses incurred in the performance of University business in accordance with this travel policy.",
+      "why": "the University pays for travel in the performance of University business"
+    }
+  ],
+  "distractors": [
+    {
+      "lines": [
+        189,
+        190
+      ],
+      "quote": "The University has the ability to pay directly for approved travel expenses for airfare",
+      "why": "the University may pay the agency directly; not a fare rule"
+    }
+  ],
+  "design_notes": "Lines 164-170: personal travel while in Travel Status is disclosed in the request, but only University business-related expenses are paid. The Seattle weekend is wholly personal: buy nothing. The program's approvals are on file but unused (rule 4(b))."
+}

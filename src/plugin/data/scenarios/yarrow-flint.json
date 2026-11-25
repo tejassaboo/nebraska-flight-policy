@@ -1,0 +1,163 @@
+{
+  "id": "yarrow-flint",
+  "category": "flag",
+  "overlays": [
+    "approval_required",
+    "outside_air_section"
+  ],
+  "twin_of": "",
+  "twin_fact": "",
+  "flag_twins": [
+    "birch-lantern",
+    "ember-thicket"
+  ],
+  "ambiguity_note": "none: an individual request's approvals are required and missing; the text is clear",
+  "request": "My blanket travel authorization is approved for the year, so please book me Denver to Austin on January 25th for the regional extension conference, which opens the next morning.",
+  "trip": {
+    "traveller_name": "Doug Hensley",
+    "traveller_title": "Extension Educator, Youth Programs",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "campus": "Nebraska Extension, Kearney office (drives to Denver to fly)",
+    "origin": "DEN",
+    "destination": "AUS",
+    "destination_needs_passport": false,
+    "travel_date": "2027-01-25",
+    "return_date": "",
+    "booking_date": "2026-12-03",
+    "purpose": "Southern region extension conference in Austin",
+    "purpose_kind": "EXTENSION_PROGRAM",
+    "must_arrive_by": "",
+    "requested_cabin": "ECONOMY",
+    "traveller_pays_upgrade": false,
+    "requested_mode": "AIRLINE",
+    "wants_to_book_outside": false,
+    "outside_fares": [],
+    "trip_request": {
+      "kind": "BLANKET",
+      "submitted_on": "2026-07-01",
+      "covers": "Extension program visits to county offices across Nebraska for the fiscal year July 2026 to June 2027"
+    },
+    "sign_offs": [
+      {
+        "role": "SUPERVISOR_APPROVER",
+        "name": "Beth Sorensen",
+        "subject": "TRIP_REQUEST",
+        "covers": "The blanket authorization for the fiscal year, approved",
+        "given_on": "2026-07-02"
+      },
+      {
+        "role": "FINANCIAL_APPROVER",
+        "name": "Gary Imhoff",
+        "subject": "TRIP_REQUEST",
+        "covers": "The blanket authorization for the fiscal year, approved; the funding is budgeted",
+        "given_on": "2026-07-02"
+      }
+    ]
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "main",
+        "origin": "DEN",
+        "destination": "AUS",
+        "date": "2027-01-25",
+        "return_date": "",
+        "background": 0,
+        "flights": {
+          "southwest": {
+            "carrier": "WN",
+            "depart": "08:20"
+          },
+          "dallas": {
+            "carrier": "AA",
+            "via": [
+              "DFW"
+            ],
+            "depart": "07:05",
+            "layovers": [
+              65
+            ]
+          },
+          "united": {
+            "carrier": "UA",
+            "depart": "11:00"
+          }
+        },
+        "offers": [
+          {
+            "slot": "southwest-economy",
+            "flight": "southwest",
+            "cabin": "ECONOMY",
+            "fare_cents": 15900
+          },
+          {
+            "slot": "dallas-economy",
+            "flight": "dallas",
+            "cabin": "ECONOMY",
+            "fare_cents": 17400
+          },
+          {
+            "slot": "united-economy",
+            "flight": "united",
+            "cabin": "ECONOMY",
+            "fare_cents": 18700
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "FLAG_FOR_APPROVAL",
+    "offer_slots": [
+      "southwest-economy"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "APPROVAL_REQUIRED",
+      "PRE_TRIP_REQUEST_REQUIRED"
+    ],
+    "approvers": [
+      "FINANCIAL_APPROVER",
+      "SUPERVISOR_APPROVER"
+    ],
+    "clauses": [
+      "BLANKET_AUTHORIZATION",
+      "PRE_TRIP_APPROVAL"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        177,
+        181
+      ],
+      "sha256": "2608c1a25482b15114d6f4c732efbe830ad11ceaf17a2b3fa5b3c08beb3ac9e8",
+      "quote": "renewed by submitting a new Pre-Trip Request. A BTA can consist of any combination of travel within city limits, a 100-mile radius of the Traveler's respective campus (or assigned work location) and/or State limits. Expenses incurred under a BTA will be submitted on a monthly basis through the University expense management tool. Travel not meeting this criteria must be requested through the standard, individual trip process.",
+      "why": "a blanket authorization covers travel within city limits, a 100-mile radius or the state; other travel goes through the individual request"
+    },
+    {
+      "lines": [
+        136,
+        137
+      ],
+      "sha256": "f26bdb857e2ca28ced1719b258b730edbaa7d31575de4bcae05395345bfe14a8",
+      "quote": "All Travelers are required to submit a Pre-Trip Request prior to each separate Travel Status instance.",
+      "why": "a request for each trip"
+    },
+    {
+      "lines": [
+        143,
+        145
+      ],
+      "sha256": "657a427cbe68f93f6f44a150dec0a1076c40578aa7ca5becb98573503a804a3b",
+      "quote": "All Pre-Trip Requests will require approval by the Traveler's Supervisor Approver and Financial Approver for all funding sources. Pre-Trip Requests are required prior to any bookings",
+      "why": "the request, approved by the supervisor and financial approvers, comes before any booking"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "Lines 177-181: a Blanket Travel Authorization covers travel within city limits, a 100-mile radius of the campus and/or State limits; 'Travel not meeting this criteria must be requested through the standard, individual trip process'. A flight from Denver to Austin is out of state, so it needs its own request approved by the supervisor and financial approvers before any booking (lines 136-137, 143-145). Hold the lowest coach fare, Southwest at $159, for those approvals."
+}

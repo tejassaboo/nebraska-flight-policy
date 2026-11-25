@@ -1,0 +1,16 @@
+{
+  "id": "nebraska-flight-policy",
+  "name": "University of Nebraska Travel Policy Flight Booking",
+  "slug": "nebraska",
+  "title": "University of Nebraska Travel Policy (effective 2018, last revised March 7, 2019)",
+  "frozen_file": "nebraska_policy.txt",
+  "sha256": "fe3ec93cc08de53aba9327e424a4fc0c75528bd0943773338808ddf4ffe5431d",
+  "raw_pdf_sha256": "9abbbbe645e41d4e78cf4f60a70e7cdfbcc78f134bdd60368dda717756f527ce",
+  "words": 6241,
+  "lines": 806,
+  "source": "not recorded locally (UNVERIFIED); the raw PDF is the pinned copy",
+  "frozen_on": "2026-11-24",
+  "scenario_count": 24,
+  "currency": "USD",
+  "background_offers": 0
+}

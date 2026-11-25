@@ -1,0 +1,166 @@
+{
+  "id": "russet-dell",
+  "category": "hidden_clause",
+  "overlays": [
+    "outside_air_section",
+    "dearer_option"
+  ],
+  "twin_of": "",
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "Denver to Houston on January 21st for the rural health meeting the next morning. Under my accommodation plan I fly in the business cabin; please book that.",
+  "trip": {
+    "traveller_name": "Sandra Whitfield",
+    "traveller_title": "Research Associate Professor, Rural Health, UNK",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "campus": "University of Nebraska at Kearney (drives to Denver to fly)",
+    "origin": "DEN",
+    "destination": "IAH",
+    "destination_needs_passport": false,
+    "travel_date": "2027-01-21",
+    "return_date": "",
+    "booking_date": "2026-12-03",
+    "purpose": "Rural health research meeting in Houston",
+    "purpose_kind": "MEETING",
+    "must_arrive_by": "",
+    "requested_cabin": "BUSINESS",
+    "traveller_pays_upgrade": false,
+    "requested_mode": "AIRLINE",
+    "wants_to_book_outside": false,
+    "outside_fares": [],
+    "trip_request": {
+      "kind": "SINGLE_TRIP",
+      "submitted_on": "2026-11-19",
+      "covers": "Meeting in Houston, January 21-23; includes the business-cabin seat set out in the traveller's accommodation plan"
+    },
+    "sign_offs": [
+      {
+        "role": "SUPERVISOR_APPROVER",
+        "name": "Renee Dubois",
+        "subject": "TRIP_REQUEST",
+        "covers": "The trip request, approved",
+        "given_on": "2026-11-23"
+      },
+      {
+        "role": "FINANCIAL_APPROVER",
+        "name": "Arthur Coyle",
+        "subject": "TRIP_REQUEST",
+        "covers": "The trip request, approved; the funding is budgeted",
+        "given_on": "2026-11-23"
+      },
+      {
+        "role": "ADA_COORDINATOR",
+        "name": "Paul Iverson",
+        "subject": "ACCOMMODATION",
+        "covers": "ADA accommodation plan on file: a business-cabin seat on University flights; its written description was sent to the University Travel Office",
+        "given_on": "2026-10-05"
+      }
+    ]
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "main",
+        "origin": "DEN",
+        "destination": "IAH",
+        "date": "2027-01-21",
+        "return_date": "",
+        "background": 2,
+        "flights": {
+          "morning": {
+            "carrier": "UA",
+            "depart": "07:15"
+          },
+          "southwest": {
+            "carrier": "WN",
+            "depart": "09:50"
+          },
+          "midday": {
+            "carrier": "UA",
+            "depart": "12:40"
+          }
+        },
+        "offers": [
+          {
+            "slot": "morning-economy",
+            "flight": "morning",
+            "cabin": "ECONOMY",
+            "fare_cents": 22100
+          },
+          {
+            "slot": "morning-business",
+            "flight": "morning",
+            "cabin": "BUSINESS",
+            "fare_cents": 61200
+          },
+          {
+            "slot": "southwest-economy",
+            "flight": "southwest",
+            "cabin": "ECONOMY",
+            "fare_cents": 20500
+          },
+          {
+            "slot": "midday-economy",
+            "flight": "midday",
+            "cabin": "ECONOMY",
+            "fare_cents": 24800
+          },
+          {
+            "slot": "midday-business",
+            "flight": "midday",
+            "cabin": "BUSINESS",
+            "fare_cents": 57500
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "midday-business"
+    ],
+    "cabins": [
+      "BUSINESS"
+    ],
+    "reason_codes": [
+      "MEDICAL_NEED",
+      "POLICY_EXEMPTION_DOCUMENTED"
+    ],
+    "approvers": [
+      "ADA_COORDINATOR",
+      "FINANCIAL_APPROVER",
+      "NONE",
+      "SUPERVISOR_APPROVER",
+      "UNIVERSITY_TRAVEL_OFFICE"
+    ],
+    "clauses": [
+      "COMPLIANCE_AND_EXEMPTIONS"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        118,
+        123
+      ],
+      "sha256": "8deafb8b8af5734c72a2bfa2bf2c8965f534ee0712cb8456e6b4727bbdfef6c0",
+      "quote": "Exemptions to this Travel Policy will only be authorized with proper documentation, such as an ADA accommodation plan, on file with the Traveler's respective campus ADA/504 coordinator. The campus ADA/504 coordinator will provide the University Travel Office with a written description of any exemption or other accommodation to be implemented to meet the provisions of the Traveler's ADA accommodation plan, and the Pre-Trip Request will be processed and evaluated for approval incorporating the accommodation in accordance with the law.",
+      "why": "exemptions only with documentation such as an ADA accommodation plan, described to the University Travel Office"
+    },
+    {
+      "lines": [
+        143,
+        145
+      ],
+      "sha256": "657a427cbe68f93f6f44a150dec0a1076c40578aa7ca5becb98573503a804a3b",
+      "quote": "All Pre-Trip Requests will require approval by the Traveler's Supervisor Approver and Financial Approver for all funding sources. Pre-Trip Requests are required prior to any bookings",
+      "why": "the request, approved by the supervisor and financial approvers, comes before any booking"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "Lines 118-123: exemptions are authorized with documentation such as an ADA accommodation plan on file with the campus ADA/504 coordinator, who gives the University Travel Office a written description, and the request is approved incorporating it. All of that is on file, so the coach cap gives way: the cheapest business fare, United 12:40 at $575."
+}
