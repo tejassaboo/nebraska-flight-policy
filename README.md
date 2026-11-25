@@ -48,29 +48,29 @@ companions (26-28, 163-170, appendix 762-764).
 | Scenario | Category | Expected decision (offer) | Reason | Approver | Clause cited (frozen lines) |
 |---|---|---|---|---|---|
 | `birch-lantern` | easy | BOOK (delta-economy, ECONOMY) | LOWEST_FARE | SUPERVISOR_APPROVER, FINANCIAL_APPROVER or NONE | AIR_BOOKING etc. (143-145, 237-239) |
-| `cobalt-meadow` | easy | BOOK (jetblue-economy, ECONOMY) | UPGRADE_NOT_ELIGIBLE | same | AIR_BOOKING or UPGRADES (237-239) |
+| `cobalt-meadow` | easy | BOOK (jetblue-economy, ECONOMY) | UPGRADE_NOT_ELIGIBLE or TRAVELER_PAYS_UPGRADE | same | AIR_BOOKING or UPGRADES (237-239) |
 | `dune-sparrow` | easy | BOOK (british-economy, ECONOMY) | LOWEST_FARE | same or VICE_CHANCELLOR_BUSINESS_FINANCE | AIR_BOOKING etc., INTERNATIONAL_TRAVEL (151-153) |
 | `ember-thicket` | easy | BOOK (united-economy, ECONOMY) | LOWEST_FARE | request roles or NONE | AIR_BOOKING etc. (237-239) |
 | `fern-gable` | easy | BOOK (chicago-economy, ECONOMY) | LOWEST_FARE | request roles or NONE | AIR_BOOKING etc. (160-162, 237-239) |
-| `garnet-reed` | boundary_twin | BOOK (morning-premium, PREMIUM_ECONOMY) | PREMIUM_ECONOMY_ALLOWED or LOWEST_FARE | request roles or NONE | AIR_BOOKING or UPGRADES (237-239) |
-| `heron-slate` | boundary_twin | BOOK (morning-economy, ECONOMY) | UPGRADE_NOT_ELIGIBLE | request roles or NONE | AIR_BOOKING or UPGRADES (237-239) |
+| `garnet-reed` | boundary_twin | BOOK (morning-premium, PREMIUM_ECONOMY) | PREMIUM_ECONOMY_ALLOWED, LOWEST_FARE or UPGRADE_WITHIN_FARE_MARGIN | request roles or NONE | AIR_BOOKING, UPGRADES or MOST_ECONOMICAL_RATES (237-239) |
+| `heron-slate` | boundary_twin | BOOK (morning-economy, ECONOMY) | UPGRADE_NOT_ELIGIBLE or TRAVELER_PAYS_UPGRADE | request roles or NONE | AIR_BOOKING or UPGRADES (237-239) |
 | `iris-copper` | boundary_twin | BOOK (minneapolis-economy, ECONOMY) | LOWEST_FARE | request roles or NONE | AIR_BOOKING etc. (160-162) |
 | `juniper-wold` | boundary_twin | BOOK (jetblue-economy, ECONOMY) | ARRIVAL_NEEDED_FOR_BUSINESS or LOWEST_FARE | request roles or NONE | MOST_ECONOMICAL_RATES etc. (160-162, 237-239) |
 | `kestrel-moor` | boundary_twin | BOOK (dulles-economy, ECONOMY) | LOWEST_FARE | request roles, VC or NONE | AIR_BOOKING etc. (160-162, 151-153) |
 | `linden-shoal` | boundary_twin | BOOK (lufthansa-economy, ECONOMY) | ARRIVAL_NEEDED_FOR_BUSINESS or LOWEST_FARE | request roles, VC or NONE | MOST_ECONOMICAL_RATES etc. (160-162) |
 | `maple-cinder` | multi_rule | BOOK (airfrance-economy, ECONOMY) | TRAVEL_AGENCY_REQUIRED | request roles, VC or NONE | AIR_BOOKING, APPENDIX_RECEIPTS, INTERNATIONAL_TRAVEL (222-225, 563-567) |
 | `nutmeg-ridge` | multi_rule | BOOK (ana-economy, ECONOMY) | TRAVELER_PAYS_UPGRADE or UPGRADE_NOT_ELIGIBLE | request roles, VC or NONE | AIR_BOOKING, UPGRADES, INTERNATIONAL_TRAVEL (237-244) |
-| `opal-fjord` | multi_rule | BOOK (united-economy, ECONOMY) | PRIVATE_AIRCRAFT_NOT_APPROVED | request roles or NONE | PRE_TRIP_APPROVAL, OTHER_FORMS_OF_TRAVEL, COMMERCIAL_AIR (156-158, 208-211, 316-321) |
+| `opal-fjord` | multi_rule | BOOK (united-economy, ECONOMY) | PRIVATE_AIRCRAFT_NOT_APPROVED or LOWEST_FARE | request roles or NONE | PRE_TRIP_APPROVAL, OTHER_FORMS_OF_TRAVEL, COMMERCIAL_AIR or MOST_ECONOMICAL_RATES (156-158, 208-213, 316-321) |
 | `pewter-glen` | multi_rule | BOOK (southwest-economy, ECONOMY) | OUTSIDE_FARE_COMPARISON_NOT_MET or TRAVEL_AGENCY_REQUIRED | request roles or NONE | AIR_BOOKING or APPENDIX_RECEIPTS (228-234) |
-| `quartz-bramble` | hidden_clause | BOOK (alaska-economy, ECONOMY) | UPGRADE_NOT_ELIGIBLE | request roles or NONE | NON_UNIVERSITY_PERSONNEL, AIR_BOOKING, UPGRADES (103-106) |
-| `russet-dell` | hidden_clause | BOOK (midday-business, BUSINESS) | POLICY_EXEMPTION_DOCUMENTED or MEDICAL_NEED | request roles, ADA_COORDINATOR, UNIVERSITY_TRAVEL_OFFICE or NONE | COMPLIANCE_AND_EXEMPTIONS (118-123) |
+| `quartz-bramble` | hidden_clause | BOOK (alaska-economy, ECONOMY) | UPGRADE_NOT_ELIGIBLE or TRAVELER_PAYS_UPGRADE | request roles or NONE | NON_UNIVERSITY_PERSONNEL, AIR_BOOKING, UPGRADES (103-106) |
+| `russet-dell` | hidden_clause | BOOK (midday-business, BUSINESS) | POLICY_EXEMPTION_DOCUMENTED or MEDICAL_NEED | request roles, ADA_COORDINATOR, UNIVERSITY_TRAVEL_OFFICE or NONE | COMPLIANCE_AND_EXEMPTIONS, MOST_ECONOMICAL_RATES or PRE_TRIP_APPROVAL (118-123, 162) |
 | `sorrel-pike` | distractor | BOOK (klm-economy, ECONOMY) | LOWEST_FARE | request roles, VC or NONE | AIR_BOOKING etc., INTERNATIONAL_TRAVEL (151-153; 148-151 is the distractor) |
 | `tansy-bluff` | distractor | BOOK (american-economy, ECONOMY) | LOWEST_FARE | request roles, ADA_COORDINATOR or NONE | AIR_BOOKING etc. (237-239; 118-120 is the distractor) |
-| `umber-loch` | refusal | REFUSE | COMPANION_NOT_COVERED, PERSONAL_TRAVEL_NOT_COVERED or OUTSIDE_POLICY_SCOPE | request roles or NONE | POLICY_STATEMENT, PERSONAL_TRAVEL, APPENDIX_RECEIPTS or SCOPE (26-28, 164-170, 762-764) |
-| `vetch-hollow` | refusal | REFUSE | PERSONAL_TRAVEL_NOT_COVERED or OUTSIDE_POLICY_SCOPE | request roles or NONE | PERSONAL_TRAVEL, POLICY_STATEMENT or SCOPE (164-170) |
+| `umber-loch` | refusal | REFUSE | COMPANION_NOT_COVERED, PERSONAL_TRAVEL_NOT_COVERED or OUTSIDE_POLICY_SCOPE | request roles or NONE | POLICY_STATEMENT, PERSONAL_TRAVEL, APPENDIX_RECEIPTS, SCOPE or DEFINITIONS (26-28, 76-77, 164-170, 762-764) |
+| `vetch-hollow` | refusal | REFUSE | PERSONAL_TRAVEL_NOT_COVERED or OUTSIDE_POLICY_SCOPE | request roles or NONE | PERSONAL_TRAVEL, POLICY_STATEMENT, SCOPE or DEFINITIONS (164-170) |
 | `willow-crag` | flag | FLAG_FOR_APPROVAL (aircanada-economy, ECONOMY) | APPROVAL_REQUIRED or PRE_TRIP_REQUEST_REQUIRED | VICE_CHANCELLOR_BUSINESS_FINANCE | PRE_TRIP_APPROVAL, INTERNATIONAL_TRAVEL or DEFINITIONS (53-55, 151-153) |
 | `yarrow-flint` | flag | FLAG_FOR_APPROVAL (southwest-economy, ECONOMY) | APPROVAL_REQUIRED or PRE_TRIP_REQUEST_REQUIRED | SUPERVISOR_APPROVER or FINANCIAL_APPROVER | BLANKET_AUTHORIZATION or PRE_TRIP_APPROVAL (177-181) |
-| `zinnia-marsh` | flag | FLAG_FOR_APPROVAL (alaska-economy, ECONOMY) | UNCLEAR_POLICY_TEXT or APPROVAL_REQUIRED | NOT_NAMED, UNIVERSITY_TRAVEL_OFFICE or VC | PRE_TRIP_APPROVAL (153-154) |
+| `zinnia-marsh` | flag | FLAG_FOR_APPROVAL (alaska-economy, ECONOMY) | UNCLEAR_POLICY_TEXT or APPROVAL_REQUIRED | NOT_NAMED, UNIVERSITY_TRAVEL_OFFICE, VC, SUPERVISOR_APPROVER or EXPORT_CONTROL_OFFICE | PRE_TRIP_APPROVAL (148-149, 153-154) |
 
 "AIR_BOOKING etc." is AIR_BOOKING, COMMERCIAL_AIR, MOST_ECONOMICAL_RATES or PRE_TRIP_APPROVAL (plus
 INTERNATIONAL_TRAVEL abroad); "request roles" are SUPERVISOR_APPROVER and FINANCIAL_APPROVER, whose approval of the
@@ -105,9 +105,9 @@ instructions say so), so `LOWEST_FARE` is not accepted there.
 sets its own number, and every twin, deadline, outside-fare and flag search has none.
 
 Degenerate agents (`tests/test_verifier.py`): one that always holds the right offer as unclear passes 1 case
-(`zinnia-marsh`); one that always books the cheapest seat with `LOWEST_FARE`, `NONE` and the right section passes 8
-(`birch-lantern`, `dune-sparrow`, `ember-thicket`, `fern-gable`, `iris-copper`, `kestrel-moor`, `sorrel-pike`,
-`tansy-bluff`).
+(`zinnia-marsh`); one that always books the cheapest seat with `LOWEST_FARE`, `NONE` and the right section passes 9
+of 24, 37.5% (`birch-lantern`, `dune-sparrow`, `ember-thicket`, `fern-gable`, `iris-copper`, `kestrel-moor`,
+`opal-fjord`, `sorrel-pike`, `tansy-bluff`).
 
 ## Tools
 

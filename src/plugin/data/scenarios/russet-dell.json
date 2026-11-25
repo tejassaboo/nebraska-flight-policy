@@ -137,7 +137,9 @@
       "UNIVERSITY_TRAVEL_OFFICE"
     ],
     "clauses": [
-      "COMPLIANCE_AND_EXEMPTIONS"
+      "COMPLIANCE_AND_EXEMPTIONS",
+      "MOST_ECONOMICAL_RATES",
+      "PRE_TRIP_APPROVAL"
     ],
     "unclear_phrase": ""
   },

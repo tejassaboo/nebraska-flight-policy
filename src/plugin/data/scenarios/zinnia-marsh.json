@@ -109,7 +109,9 @@
       "UNCLEAR_POLICY_TEXT"
     ],
     "approvers": [
+      "EXPORT_CONTROL_OFFICE",
       "NOT_NAMED",
+      "SUPERVISOR_APPROVER",
       "UNIVERSITY_TRAVEL_OFFICE",
       "VICE_CHANCELLOR_BUSINESS_FINANCE"
     ],

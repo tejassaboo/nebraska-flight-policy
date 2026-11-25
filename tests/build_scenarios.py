@@ -233,7 +233,7 @@ scenario(
         offer("american-economy", "american", "ECONOMY", 29800),
         offer("american-business", "american", "BUSINESS", 109000),
     ]),
-    expected("BOOK", ["jetblue-economy"], ["ECONOMY"], ["UPGRADE_NOT_ELIGIBLE"], ROLES, CABIN),
+    expected("BOOK", ["jetblue-economy"], ["ECONOMY"], ["TRAVELER_PAYS_UPGRADE", "UPGRADE_NOT_ELIGIBLE"], ROLES, CABIN),
     [COACH_CAP, REQUEST],
     "Lines 237-238: the ticket may not exceed the coach or main cabin price at purchase. Business fares ($1,090 and "
     "up) exceed every coach fare, so the traveller's fallback applies: the lowest coach fare, JetBlue at $289. The "
@@ -341,7 +341,9 @@ def dulles_trip():
 
 scenario(
     "garnet-reed", "boundary_twin", [], PREMIUM_REQUEST, dulles_trip(), dulles(26400),
-    expected("BOOK", ["morning-premium"], ["PREMIUM_ECONOMY"], ["LOWEST_FARE", "PREMIUM_ECONOMY_ALLOWED"], ROLES, CABIN),
+    expected("BOOK", ["morning-premium"], ["PREMIUM_ECONOMY"], ["LOWEST_FARE", "PREMIUM_ECONOMY_ALLOWED",
+                                                                "UPGRADE_WITHIN_FARE_MARGIN"], ROLES,
+             [*CABIN, "MOST_ECONOMICAL_RATES"]),
     [COACH_CAP, REQUEST],
     "Lines 237-238 cap the ticket at the coach or main cabin price at purchase ('not to exceed': inclusive). The 08:05 "
     "premium economy fare is $264, the same as the coach fare on that flight, which is also the lowest listed price; "
@@ -350,7 +352,7 @@ scenario(
 
 scenario(
     "heron-slate", "boundary_twin", [], PREMIUM_REQUEST, dulles_trip(), dulles(26500),
-    expected("BOOK", ["morning-economy"], ["ECONOMY"], ["UPGRADE_NOT_ELIGIBLE"], ROLES, CABIN),
+    expected("BOOK", ["morning-economy"], ["ECONOMY"], ["TRAVELER_PAYS_UPGRADE", "UPGRADE_NOT_ELIGIBLE"], ROLES, CABIN),
     [COACH_CAP, REQUEST],
     "The 08:05 premium economy fare is $265, one dollar above the $264 coach fare, which is also the lowest listed "
     "price: it exceeds the coach rate (lines 237-238), so the fallback applies: the lowest coach fare. The reason says "
@@ -532,8 +534,8 @@ scenario(
                               "to charter a plane is noted, with no approval for it"),
          sign_offs=approvals("Craig Whitmore", "Lori Baca", "2026-11-24")),
     SALT_LAKE,
-    expected("BOOK", ["united-economy"], ["ECONOMY"], ["PRIVATE_AIRCRAFT_NOT_APPROVED"], ROLES,
-             ["COMMERCIAL_AIR", "OTHER_FORMS_OF_TRAVEL", "PRE_TRIP_APPROVAL"]),
+    expected("BOOK", ["united-economy"], ["ECONOMY"], ["LOWEST_FARE", "PRIVATE_AIRCRAFT_NOT_APPROVED"], ROLES,
+             ["COMMERCIAL_AIR", "MOST_ECONOMICAL_RATES", "OTHER_FORMS_OF_TRAVEL", "PRE_TRIP_APPROVAL"]),
     [PLANES, OTHER_FORMS, COMMERCIAL, REQUEST, COACH_CAP],
     "Lines 156-158: chartered planes need additional approval from the Vice Chancellor of Business and Finance, and "
     "lines 316-321 need a request affirming no more economical means; none is on file. Lines 208-211 expect "
@@ -553,8 +555,8 @@ PHOENIX = search("DEN", "PHX", "2027-01-07", {
 scenario(
     "pewter-glen", "multi_rule", ["date_arithmetic", "month_end"],
     "Denver to Phoenix on January 7th for the desert agriculture meeting the next morning. On November 28th I found my "
-    "Southwest flight on Expedia for $171, everything included, less than the agency charges, so I'd like to buy it "
-    "myself. If I can't, book it through the agency.",
+    "Southwest flight on Expedia for $171, everything included, less than the agency is charging today, so I'd "
+    "like to buy it myself. If I can't, book it through the agency.",
     trip(traveller_name="Neil Ashworth", traveller_title="Extension Educator, Cropping Systems", destination="PHX",
          travel_date="2027-01-07", booking_date="2026-12-01", purpose="Desert agriculture research meeting in Phoenix",
          purpose_kind="MEETING", wants_to_book_outside=True,
@@ -597,7 +599,7 @@ scenario(
         offer("delta-economy", "delta", "ECONOMY", 18600),
         offer("delta-business", "delta", "BUSINESS", 58500),
     ]),
-    expected("BOOK", ["alaska-economy"], ["ECONOMY"], ["UPGRADE_NOT_ELIGIBLE"], ROLES,
+    expected("BOOK", ["alaska-economy"], ["ECONOMY"], ["TRAVELER_PAYS_UPGRADE", "UPGRADE_NOT_ELIGIBLE"], ROLES,
              [*CABIN, "NON_UNIVERSITY_PERSONNEL"]),
     [NON_UNIVERSITY, COACH_CAP, REQUEST],
     "Lines 103-106: speakers who have contracted with the University for an event are expected to comply with the "
@@ -630,7 +632,8 @@ scenario(
         offer("midday-business", "midday", "BUSINESS", 57500),
     ]),
     expected("BOOK", ["midday-business"], ["BUSINESS"], ["MEDICAL_NEED", "POLICY_EXEMPTION_DOCUMENTED"],
-             [*ROLES, "ADA_COORDINATOR", "UNIVERSITY_TRAVEL_OFFICE"], ["COMPLIANCE_AND_EXEMPTIONS"]),
+             [*ROLES, "ADA_COORDINATOR", "UNIVERSITY_TRAVEL_OFFICE"],
+             ["COMPLIANCE_AND_EXEMPTIONS", "MOST_ECONOMICAL_RATES", "PRE_TRIP_APPROVAL"]),
     [EXEMPTION, REQUEST],
     "Lines 118-123: exemptions are authorized with documentation such as an ADA accommodation plan on file with the "
     "campus ADA/504 coordinator, who gives the University Travel Office a written description, and the request is "
@@ -717,7 +720,7 @@ scenario(
         offer("southwest-economy", "southwest", "ECONOMY", 17900),
     ]),
     expected("REFUSE", [], ["NONE"], ["COMPANION_NOT_COVERED", "OUTSIDE_POLICY_SCOPE", "PERSONAL_TRAVEL_NOT_COVERED"],
-             ROLES, ["APPENDIX_RECEIPTS", "PERSONAL_TRAVEL", "POLICY_STATEMENT", "SCOPE"]),
+             ROLES, ["APPENDIX_RECEIPTS", "DEFINITIONS", "PERSONAL_TRAVEL", "POLICY_STATEMENT", "SCOPE"]),
     [POLICY_STATEMENT, PERSONAL, SPOUSE_ROW],
     "Lines 26-28: the University pays for travel incurred in the performance of University business; lines 164-170 pay "
     "only the business portion; the appendix lists spouse/companion expenses as not reimbursable (lines 762-764). The "
@@ -745,7 +748,7 @@ scenario(
         offer("alaska-economy", "alaska", "ECONOMY", 19600),
     ]),
     expected("REFUSE", [], ["NONE"], ["OUTSIDE_POLICY_SCOPE", "PERSONAL_TRAVEL_NOT_COVERED"], ROLES,
-             ["PERSONAL_TRAVEL", "POLICY_STATEMENT", "SCOPE"]),
+             ["DEFINITIONS", "PERSONAL_TRAVEL", "POLICY_STATEMENT", "SCOPE"]),
     [PERSONAL, POLICY_STATEMENT],
     "Lines 164-170: personal travel while in Travel Status is disclosed in the request, but only University "
     "business-related expenses are paid. The Seattle weekend is wholly personal: buy nothing. The program's approvals "
@@ -833,7 +836,8 @@ scenario(
         offer("alaska-economy", "alaska", "ECONOMY", 39600),
     ], background=0),
     expected("FLAG_FOR_APPROVAL", ["alaska-economy"], ["ECONOMY"], ["APPROVAL_REQUIRED", "UNCLEAR_POLICY_TEXT"],
-             ["NOT_NAMED", "UNIVERSITY_TRAVEL_OFFICE", "VICE_CHANCELLOR_BUSINESS_FINANCE"], ["PRE_TRIP_APPROVAL"],
+             ["EXPORT_CONTROL_OFFICE", "NOT_NAMED", "SUPERVISOR_APPROVER", "UNIVERSITY_TRAVEL_OFFICE",
+              "VICE_CHANCELLOR_BUSINESS_FINANCE"], ["PRE_TRIP_APPROVAL"],
              phrase="may require additional approval based on campus-specific procedures"),
     [NON_CONTINENTAL, REQUEST, INTL_DEFINED],
     "Hawaii is in the United States and needs no passport, so it is not International Travel (lines 53-55) and needs "

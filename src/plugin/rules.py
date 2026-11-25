@@ -198,13 +198,14 @@ def solve(trip, offers, hidden):
     if trip.passenger == Passenger.COMPANION:
         return answer(Decision.REFUSE, [], [ReasonCode.COMPANION_NOT_COVERED, ReasonCode.PERSONAL_TRAVEL_NOT_COVERED,
                                             ReasonCode.OUTSIDE_POLICY_SCOPE],
-                      unused, [Clause.POLICY_STATEMENT, Clause.PERSONAL_TRAVEL, Clause.APPENDIX_RECEIPTS, Clause.SCOPE],
+                      unused, [Clause.POLICY_STATEMENT, Clause.PERSONAL_TRAVEL, Clause.APPENDIX_RECEIPTS, Clause.SCOPE,
+                               Clause.DEFINITIONS],
                       "Lines 26-28: the University pays for travel incurred in the performance of University business; "
                       "lines 163-170: only the business portion is paid; the appendix lists spouse/companion expenses "
                       "as not reimbursable. The companion's flight is not University business: no ticket.")
     if trip.purpose_kind == Purpose.PERSONAL:
         return answer(Decision.REFUSE, [], [ReasonCode.PERSONAL_TRAVEL_NOT_COVERED, ReasonCode.OUTSIDE_POLICY_SCOPE],
-                      unused, [Clause.PERSONAL_TRAVEL, Clause.POLICY_STATEMENT, Clause.SCOPE],
+                      unused, [Clause.PERSONAL_TRAVEL, Clause.POLICY_STATEMENT, Clause.SCOPE, Clause.DEFINITIONS],
                       "Lines 163-170: personal travel during Travel Status is the traveller's; the University pays only "
                       "the University business portion (lines 26-28). This flight is wholly personal: no ticket.")
     seated = [offer for offer in on_route(trip, offers) if offer.seats_available]
@@ -225,7 +226,10 @@ def solve(trip, offers, hidden):
     elif trip.destination.code in NON_CONTINENTAL:
         held = coach(trip, seated)[0]
         return answer(Decision.FLAG_FOR_APPROVAL, held, UNCLEAR_REASONS,
-                      [Approver.NOT_NAMED, Approver.UNIVERSITY_TRAVEL_OFFICE, VICE_CHANCELLOR],
+                      # Lines 148-149 name supervisors, export control offices, the University Travel Office
+                      # and other administration as reviewers of non-continental travel.
+                      [Approver.NOT_NAMED, Approver.UNIVERSITY_TRAVEL_OFFICE, VICE_CHANCELLOR,
+                       Approver.SUPERVISOR_APPROVER, Approver.EXPORT_CONTROL_OFFICE],
                       [Clause.PRE_TRIP_APPROVAL],
                       "Lines 153-154: non-continental United States travel 'may require additional approval based on "
                       "campus-specific procedures'; the handbook does not give those procedures or name the approver, "
@@ -258,8 +262,11 @@ def booking(trip, seated, roles, extra):
         if trip.requested_cabin != Cabin.ECONOMY or trip.wants_to_book_outside:
             raise ValueError("a charter request beside another request is not modelled")
         chosen, _, clauses, note = coach(trip, seated)
-        return answer(Decision.BOOK, chosen, [ReasonCode.PRIVATE_AIRCRAFT_NOT_APPROVED], roles,
-                      [Clause.PRE_TRIP_APPROVAL, Clause.OTHER_FORMS_OF_TRAVEL, Clause.COMMERCIAL_AIR, *clauses, *extra],
+        # Lines 316-318 also make the charter wait on an affirmation that no more economical means exists, and
+        # lines 212-213 pay only up to the most economical option: a reader may give that ground instead.
+        return answer(Decision.BOOK, chosen, [ReasonCode.PRIVATE_AIRCRAFT_NOT_APPROVED, ReasonCode.LOWEST_FARE], roles,
+                      [Clause.PRE_TRIP_APPROVAL, Clause.OTHER_FORMS_OF_TRAVEL, Clause.COMMERCIAL_AIR,
+                       Clause.MOST_ECONOMICAL_RATES, *clauses, *extra],
                       "Lines 156-158 and 314-320: a chartered plane needs the Vice Chancellor's additional approval, "
                       "which is not on file; lines 208-211: commercial airlines are expected, and the traveller asked "
                       f"for an airline flight otherwise; {note}.")
@@ -284,7 +291,10 @@ def booking(trip, seated, roles, extra):
             raise ValueError("an accommodated cabin with tied or no fares, or paid by the traveller, is not modelled")
         return answer(Decision.BOOK, better, [ReasonCode.POLICY_EXEMPTION_DOCUMENTED, ReasonCode.MEDICAL_NEED],
                       [*roles, Approver.ADA_COORDINATOR, Approver.UNIVERSITY_TRAVEL_OFFICE],
-                      [Clause.COMPLIANCE_AND_EXEMPTIONS, *extra],
+                      # Line 162 counts special needs in the most economic option; the approved request
+                      # incorporates the accommodation (lines 122-123, 143-146).
+                      [Clause.COMPLIANCE_AND_EXEMPTIONS, Clause.MOST_ECONOMICAL_RATES, Clause.PRE_TRIP_APPROVAL,
+                       *extra],
                       "Lines 118-123: an exemption documented by an ADA accommodation plan, whose written description "
                       "the campus ADA/504 coordinator gave the University Travel Office, is part of the approved "
                       "request: the cheapest fare in the accommodated cabin.")
@@ -301,8 +311,9 @@ def booking(trip, seated, roles, extra):
     if within:
         if len(within) != 1:
             raise ValueError("several better-cabin fares within the coach price are not modelled")
-        return answer(Decision.BOOK, within, [ReasonCode.PREMIUM_ECONOMY_ALLOWED, ReasonCode.LOWEST_FARE], roles,
-                      [*CABIN_CLAUSES, *extra],
+        return answer(Decision.BOOK, within, [ReasonCode.PREMIUM_ECONOMY_ALLOWED, ReasonCode.LOWEST_FARE,
+                                              ReasonCode.UPGRADE_WITHIN_FARE_MARGIN], roles,
+                      [*CABIN_CLAUSES, Clause.MOST_ECONOMICAL_RATES, *extra],
                       f"Lines 237-238: the requested cabin's fare ({within[0].fare_cents} cents) does not exceed the "
                       "coach fare at purchase, which is also the lowest listed price: the traveller's choice is allowed.")
     clauses = [*CABIN_CLAUSES, *extra]
@@ -313,7 +324,9 @@ def booking(trip, seated, roles, extra):
                why[0].lower() + why[1:])
     elif trip.passenger != Passenger.EMPLOYEE:
         raise ValueError("this passenger is not modelled")
-    return answer(Decision.BOOK, chosen, [ReasonCode.UPGRADE_NOT_ELIGIBLE], roles, clauses,
+    # Lines 241-244 (accepted as UPGRADES) make an upgrade the traveller's own: a reader may give that ground.
+    return answer(Decision.BOOK, chosen, [ReasonCode.UPGRADE_NOT_ELIGIBLE, ReasonCode.TRAVELER_PAYS_UPGRADE], roles,
+                  clauses,
                   f"{why}, and the requested cabin's cheapest fare exceeds it; {note}.")
 
 

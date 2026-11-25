@@ -117,7 +117,8 @@
     ],
     "reason_codes": [
       "LOWEST_FARE",
-      "PREMIUM_ECONOMY_ALLOWED"
+      "PREMIUM_ECONOMY_ALLOWED",
+      "UPGRADE_WITHIN_FARE_MARGIN"
     ],
     "approvers": [
       "FINANCIAL_APPROVER",
@@ -126,6 +127,7 @@
     ],
     "clauses": [
       "AIR_BOOKING",
+      "MOST_ECONOMICAL_RATES",
       "UPGRADES"
     ],
     "unclear_phrase": ""

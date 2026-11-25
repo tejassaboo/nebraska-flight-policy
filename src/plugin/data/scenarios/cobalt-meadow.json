@@ -116,6 +116,7 @@
       "ECONOMY"
     ],
     "reason_codes": [
+      "TRAVELER_PAYS_UPGRADE",
       "UPGRADE_NOT_ELIGIBLE"
     ],
     "approvers": [

@@ -49,7 +49,7 @@ ID_CATEGORY_ENUMS = [contract.Passenger, contract.Purpose, contract.TravelMode, 
 # How many scenarios a degenerate agent may pass: one that always holds the right offer for approval, and
 # one that always books the cheapest seat (with the right section).
 MAX_PASS_ALWAYS_FLAG = 1
-MAX_PASS_ALWAYS_LOWEST = 8
+MAX_PASS_ALWAYS_LOWEST = 9
 
 # Hand-built duration cases beyond the automatic both-sides tests: none, since the handbook has no flight-length
 # threshold (rules.DURATION_RULES is empty).

@@ -104,6 +104,7 @@
       "SUPERVISOR_APPROVER"
     ],
     "clauses": [
+      "DEFINITIONS",
       "PERSONAL_TRAVEL",
       "POLICY_STATEMENT",
       "SCOPE"

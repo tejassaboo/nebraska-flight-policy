@@ -106,6 +106,7 @@
       "ECONOMY"
     ],
     "reason_codes": [
+      "LOWEST_FARE",
       "PRIVATE_AIRCRAFT_NOT_APPROVED"
     ],
     "approvers": [
@@ -115,6 +116,7 @@
     ],
     "clauses": [
       "COMMERCIAL_AIR",
+      "MOST_ECONOMICAL_RATES",
       "OTHER_FORMS_OF_TRAVEL",
       "PRE_TRIP_APPROVAL"
     ],

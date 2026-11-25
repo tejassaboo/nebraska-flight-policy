@@ -106,6 +106,7 @@
     ],
     "clauses": [
       "APPENDIX_RECEIPTS",
+      "DEFINITIONS",
       "PERSONAL_TRAVEL",
       "POLICY_STATEMENT",
       "SCOPE"
