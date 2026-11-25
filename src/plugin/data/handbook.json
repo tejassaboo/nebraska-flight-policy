@@ -8,7 +8,7 @@
   "raw_pdf_sha256": "9abbbbe645e41d4e78cf4f60a70e7cdfbcc78f134bdd60368dda717756f527ce",
   "words": 6241,
   "lines": 806,
-  "source": "not recorded locally (UNVERIFIED); the raw PDF is the pinned copy",
+  "source": "https://snr.unl.edu/download/employeeinfo/information/University-of-Nebraska-Travel-Policy-March-2019.pdf; byte-identical to the pinned raw PDF (sha256 checked 2026-11-25); the copy is on a University of Nebraska-Lincoln site, the live policy page is https://nebraska.edu/offices/travel/travel-policy",
   "frozen_on": "2026-11-24",
   "scenario_count": 24,
   "currency": "USD",
