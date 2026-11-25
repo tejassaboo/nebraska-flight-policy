@@ -1,5 +1,7 @@
 # University of Nebraska Travel Policy Flight Booking
 
+**Source of the handbook:** https://snr.unl.edu/download/employeeinfo/information/University-of-Nebraska-Travel-Policy-March-2019.pdf. The agent reads it verbatim (bundled at `src/plugin/data/policy.txt`); flights, fares and trips are synthetic.
+
 **No affiliation with the University of Nebraska.** The handbook is the University of Nebraska system's public
 *Travel Policy* (effective 2018 by campus, last revised March 7, 2019), bundled verbatim for research. Its source URL
 was not recorded when the PDF was downloaded (`pilot_work/originals/MANIFEST.md`: UNVERIFIED); confirm the public URL
